@@ -1,22 +1,108 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageViewController" customModule="LoginMVVM" customModuleProvider="target">
             <connections>
+                <outlet property="imgLoadWeb" destination="FZl-gQ-nWD" id="O8v-sa-YF8"/>
+                <outlet property="sliderBlue" destination="kbm-yJ-jv4" id="t8A-cR-E1v"/>
+                <outlet property="sliderGreen" destination="ThM-qS-FeW" id="9wJ-gW-fHx"/>
+                <outlet property="sliderRed" destination="m13-Tj-iwY" id="Xwm-vT-9nJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webKit" destination="3xx-UK-emH" id="kfX-EE-CDL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FZl-gQ-nWD">
+                    <rect key="frame" x="50" y="109" width="293" height="222"/>
+                </imageView>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="m13-Tj-iwY">
+                    <rect key="frame" x="48" y="648" width="269" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="SJB-Io-8Lk"/>
+                    </constraints>
+                    <color key="thumbTintColor" systemColor="systemPinkColor"/>
+                    <connections>
+                        <action selector="actionSlideView:" destination="-1" eventType="valueChanged" id="ceR-6e-WUF"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ThM-qS-FeW">
+                    <rect key="frame" x="48" y="685" width="269" height="30"/>
+                    <color key="thumbTintColor" systemColor="systemGreenColor"/>
+                    <connections>
+                        <action selector="actionSlideView:" destination="-1" eventType="valueChanged" id="LSO-A6-Xi0"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kbm-yJ-jv4">
+                    <rect key="frame" x="48" y="722" width="269" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="yx3-hl-vKs"/>
+                    </constraints>
+                    <color key="thumbTintColor" systemColor="systemBlueColor"/>
+                    <connections>
+                        <action selector="actionSlideView:" destination="-1" eventType="valueChanged" id="zfB-2A-sNw"/>
+                    </connections>
+                </slider>
+                <wkWebView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3xx-UK-emH">
+                    <rect key="frame" x="10" y="358" width="373" height="267"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="193" id="5Gb-IF-6NV"/>
+                    </constraints>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemGray6Color"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kbm-yJ-jv4" secondAttribute="bottom" constant="67" id="3Um-iC-aos"/>
+                <constraint firstItem="m13-Tj-iwY" firstAttribute="top" secondItem="3xx-UK-emH" secondAttribute="bottom" constant="56" id="3m0-z6-7Kl"/>
+                <constraint firstItem="ThM-qS-FeW" firstAttribute="top" secondItem="m13-Tj-iwY" secondAttribute="bottom" constant="8" id="4j8-GN-Sew"/>
+                <constraint firstItem="3xx-UK-emH" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="9Kq-JZ-8bM"/>
+                <constraint firstItem="m13-Tj-iwY" firstAttribute="leading" secondItem="kbm-yJ-jv4" secondAttribute="leading" id="Cv4-VI-QEY"/>
+                <constraint firstItem="m13-Tj-iwY" firstAttribute="trailing" secondItem="kbm-yJ-jv4" secondAttribute="trailing" id="JO1-SA-cJ3"/>
+                <constraint firstItem="3xx-UK-emH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="399" id="L21-lQ-JlC"/>
+                <constraint firstItem="FZl-gQ-nWD" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="LHy-O5-Ea3"/>
+                <constraint firstItem="3xx-UK-emH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="VpM-28-iAL"/>
+                <constraint firstItem="3xx-UK-emH" firstAttribute="top" secondItem="FZl-gQ-nWD" secondAttribute="bottom" constant="68" id="Yhy-2f-e1w"/>
+                <constraint firstItem="m13-Tj-iwY" firstAttribute="trailing" secondItem="ThM-qS-FeW" secondAttribute="trailing" id="Yql-xO-KbU"/>
+                <constraint firstItem="kbm-yJ-jv4" firstAttribute="top" secondItem="ThM-qS-FeW" secondAttribute="bottom" constant="8" id="dov-rz-xcg"/>
+                <constraint firstItem="FZl-gQ-nWD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="e3X-le-3Qf"/>
+                <constraint firstItem="m13-Tj-iwY" firstAttribute="leading" secondItem="FZl-gQ-nWD" secondAttribute="leading" id="htp-ua-ish"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3xx-UK-emH" secondAttribute="trailing" constant="10" id="mTy-vZ-xZo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="m13-Tj-iwY" secondAttribute="trailing" constant="78" id="onR-AP-lGa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FZl-gQ-nWD" secondAttribute="trailing" constant="50" id="swt-9x-hae"/>
+                <constraint firstItem="m13-Tj-iwY" firstAttribute="leading" secondItem="ThM-qS-FeW" secondAttribute="leading" id="tL2-2w-0DH"/>
+                <constraint firstItem="FZl-gQ-nWD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="tz2-sk-SW3"/>
+            </constraints>
+            <point key="canvasLocation" x="138.1679389312977" y="20.422535211267608"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

@@ -8,22 +8,22 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    @IBOutlet weak var labelUser: UILabel!
+    
+    var user: String = "UserName"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        labelUser.text = user
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func tapAction(_ sender: Any) {
+        let tap:UITapGestureRecognizer =  sender as! UITapGestureRecognizer
+        print(tap.location(in: self.view))
+        let img = UIImageView(image: UIImage(named: "1"))
+        img.frame.size = CGSize(width: 50, height: 50)
+        img.center = tap.location(in: self.view)
+        view.addSubview(img)
     }
-    */
-
+    
 }
